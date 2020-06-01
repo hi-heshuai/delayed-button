@@ -2,7 +2,7 @@
   "name": "delayed-button",
   "keyword": "vue delay delayed-button button delayed",
   "license": "MIT",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "private": false,
   "author": "heshuai",
   "main": "lib/delayed-button.umd.min.js",

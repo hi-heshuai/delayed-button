@@ -10,6 +10,7 @@ export default {
     const tagName = this.tagName;
     return (
       <tagName
+        {...{ attrs: this.attrs }}
         on-click={this.clickHandler}
         disabled={this.elDisabled}>
         {this.btnText}
@@ -18,6 +19,14 @@ export default {
   },
 
   props: {
+    //属性
+    attrs: {
+      type: Object,
+      default() {
+        return {}
+      }
+    },
+
     //倒计时
     total: {
       type: Number,
@@ -48,7 +57,7 @@ export default {
   computed: {
     elDisabled() {
       let ret = this.isDisabled;
-      if(this.countDown > 0){
+      if (this.countDown > 0) {
         ret = true;
       }
 
@@ -76,12 +85,12 @@ export default {
         this.countDown = timeout;
 
         this.clickCallbackHandler();
-      } 
+      }
     },
 
     //点击获取验证码
     clickHandler() {
-      if(this.elDisabled){
+      if (this.elDisabled) {
         return;
       }
 
@@ -90,9 +99,9 @@ export default {
 
     //点击按钮回调
     clickCallbackHandler() {
-      if(!this.countDown)
+      if (!this.countDown)
         this.countDown = this.total + 1;
-      
+
       this._setStorage();
 
       this.interval = window.setInterval(() => {

@@ -17,14 +17,21 @@ Vue.use(DelayedButton);
 ```
 
 ## 使用
-```
-<delayed-button class="hs" tagName="button" :total="5" @clickHandler="getValidate"></delayed-button>
+``` vue
+<delayed-button
+      class="hs"
+      :attrs="{maxLength: 11, type: 'primary'}"
+      tagName="button"
+      :total="5"
+      @clickHandler="getValidate"
+    ></delayed-button>
 ```
 
 ## 参数
 * tagName(String) 需要渲染的标签名,默认button  
 * total(Number) 倒计时总时长,默认60，单位秒  
 * isDisabled(Boolean) 是否可用，默认false
+* attrs(Object) 标签属性，默认{}。例如{maxLength: 11, type: 'primary'}，将添加maxLength=11 type="primary"两个属性  
 
 ## 事件
 clickHandler(cb)  验证通过后调用cb()  
@@ -34,7 +41,13 @@ clickHandler(cb)  验证通过后调用cb()
 <template>
   <div id="app">
     <input type="text" v-model="value" />
-    <delayed-button class="hs" tagName="button" :total="5" @clickHandler="getValidate"></delayed-button>
+    <delayed-button
+      class="hs"
+      :attrs="{maxLength: 11, type: 'primary'}"
+      tagName="button"
+      :total="5"
+      @clickHandler="getValidate"
+    ></delayed-button>
   </div>
 </template>
 
